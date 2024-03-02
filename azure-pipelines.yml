@@ -6,9 +6,9 @@ trigger:
 - master
 
 pool:
-  name: Azure Pipelines
+  name: Default
   demands:
-    - agent.name -equals Hosted Agent
+    - agent.name -equals RUNNER
 
 resources:
 - repo: self
@@ -18,11 +18,8 @@ variables:
   dockerRegistryServiceConnection: '081ac8c4-4af0-4f24-9a28-99147af4d541'
   imageRepository: 'nginxapp'
   containerRegistry: 'task39registry.azurecr.io'
-  dockerfilePath: './Dockerfile'
+  dockerfilePath: './Dockerfile_nginx'
   tag: '$(Build.BuildId)'
-
-  # Agent VM image name
-  vmImageName: 'ubuntu-latest'
 
 stages:
 - stage: Build
@@ -30,8 +27,6 @@ stages:
   jobs:
   - job: Build
     displayName: Build
-    pool:
-      vmImage: $(vmImageName)
     steps:
     - task: AzureAppConfiguration@7
       inputs:
