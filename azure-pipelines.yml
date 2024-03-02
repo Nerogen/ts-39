@@ -7,9 +7,9 @@ trigger:
 - master
 
 pool:
-  name: Default
+  name: Azure Pipelines
   demands:
-    - agent.name -equals RUNNER
+    - agent.name -equals Hosted Agent
 
 steps:
 - script: echo Hello, world!
