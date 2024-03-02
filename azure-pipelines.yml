@@ -44,3 +44,14 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+
+    - task: AzureContainerApps@1
+      inputs:
+        azureSubscription: 'wrodeworkae'
+        acrName: 'task39registry'
+        acrUsername: 'task39registry'
+        acrPassword: 'icV1iEqmOGRPfgk3o3gSLCXabgA70f0zm7JaLB5RJa+ACRAvW6x9'
+        imageToDeploy: 'task39registry.azurecr.io/nginxapp:$(Build.BuildId)'
+        containerAppName: 'MyNginxApp'
+        resourceGroup: 'task-39-group'
+        targetPort: '80'
