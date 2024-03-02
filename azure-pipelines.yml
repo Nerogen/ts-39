@@ -18,7 +18,7 @@ variables:
   dockerRegistryServiceConnection: '081ac8c4-4af0-4f24-9a28-99147af4d541'
   imageRepository: 'nginxapp'
   containerRegistry: 'task39registry.azurecr.io'
-  dockerfilePath: '**/Dockerfile'
+  dockerfilePath: './Dockerfile'
   tag: '$(Build.BuildId)'
 
 stages:
