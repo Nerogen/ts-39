@@ -27,8 +27,6 @@ stages:
   jobs:
   - job: Build
     displayName: Build
-    pool:
-      vmImage: $(vmImageName)
     steps:
     - task: AzureAppConfiguration@7
       inputs:
