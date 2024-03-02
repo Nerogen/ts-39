@@ -21,9 +21,6 @@ variables:
   dockerfilePath: './Dockerfile_nginx'
   tag: '$(Build.BuildId)'
 
-  # Agent VM image name
-  vmImageName: 'ubuntu-latest'
-
 stages:
 - stage: Build
   displayName: Build and push stage
