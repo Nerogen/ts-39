@@ -34,7 +34,11 @@ stages:
         AppConfigurationEndpoint: 'https://appconfigur.azconfig.io'
         KeyFilter: 'config'
         Label: 'config'
+
     - script: echo "$(config)" > default.conf
+    - script: |
+          echo "Nginx Configuration:"
+          cat $(Build.SourcesDirectory)/default.conf
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
