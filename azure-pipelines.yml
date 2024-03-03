@@ -35,9 +35,8 @@ stages:
         KeyFilter: '*'
         Label: 'config'
     
-    - script: echo "$(config)"
-    - script: echo $config
-    - script: echo "$(config)" > default.conf
+    - script: echo "$(default.conf)"
+    - script: echo "$(default.conf)" > default.conf
     - script: pwd && ls
     - script: |
           echo "Nginx Configuration:"
