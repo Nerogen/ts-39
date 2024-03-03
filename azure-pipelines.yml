@@ -53,5 +53,3 @@ stages:
         acrPassword: 'icV1iEqmOGRPfgk3o3gSLCXabgA70f0zm7JaLB5RJa+ACRAvW6x9'
         imageToDeploy: 'task39registry.azurecr.io/nginxapp:$(Build.BuildId)'
         containerAppName: 'MyNginxApp'
-        resourceGroup: 'task-39-group'
-        targetPort: '80'
