@@ -32,9 +32,11 @@ stages:
       inputs:
         azureSubscription: 'wrodeworkae'
         AppConfigurationEndpoint: 'https://appconfigur.azconfig.io'
-        KeyFilter: 'config'
+        KeyFilter: '*'
         Label: 'config'
-
+    
+    - script: echo "$(config)"
+    - script: echo $config
     - script: echo "$(config)" > default.conf
     - script: pwd && ls
     - script: |
