@@ -45,9 +45,14 @@ stages:
         tags: |
           $(tag)
 
-    - task: AzureWebAppContainer@1
-      displayName: 'Azure Web App on Container Deploy'
+    - task: AzureContainerApps@1
       inputs:
         azureSubscription: 'wrodeworkae'
-        appName: 'MyNginxApp'
-        containers: 'task39registry.azurecr.io/nginxapp:$(Build.BuildId)'
+        acrName: 'task39registry'
+        acrUsername: 'task39registry'
+        acrPassword: 'icV1iEqmOGRPfgk3o3gSLCXabgA70f0zm7JaLB5RJa+ACRAvW6x9'
+        imageToDeploy: 'task39registry.azurecr.io/nginxapp:$(Build.BuildId)'
+        containerAppName: 'MyNginxApp'
+        resourceGroup: 'task-39-group'
+        containerAppEnvironment: 'managedEnvironment-task39azuredevo-b1ff'
+        targetPort: '80'
