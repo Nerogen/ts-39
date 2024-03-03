@@ -36,6 +36,7 @@ stages:
         Label: 'config'
 
     - script: echo "$(config)" > default.conf
+    - script: pwd && ls
     - script: |
           echo "Nginx Configuration:"
           cat $(Build.SourcesDirectory)/default.conf
