@@ -61,3 +61,14 @@ stages:
         DockerNamespace: 'task39registry.azurecr.io'
         DockerRepository: 'nginxapp'
         DockerImageTag: '$(Build.BuildId)'
+
+    - task: KubernetesManifest@1
+      inputs:
+        action: 'deploy'
+        connectionType: 'kubernetesServiceConnection'
+        kubernetesServiceConnection: 'kub-con'
+        namespace: 'default'
+        manifests: '$(Build.SourcesDirectory)/main.yaml'
+        containers: 'task39registry.azurecr.io/nginxapp:$(Build.BuildId)'
+    
+  
