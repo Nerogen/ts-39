@@ -68,7 +68,7 @@ stages:
         connectionType: 'kubernetesServiceConnection'
         kubernetesServiceConnection: 'kub-con'
         namespace: 'default'
-        manifests: '$(Build.SourcesDirectory)/main.yaml'
+        # manifests: '$(Build.SourcesDirectory)/main.yaml'
         containers: 'task39registry.azurecr.io/nginxapp:$(Build.BuildId)'
     
   
