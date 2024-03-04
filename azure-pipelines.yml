@@ -51,17 +51,6 @@ stages:
         tags: |
           $(tag)
 
-    
-    - task: AzureRmWebAppDeployment@4
-      inputs:
-        ConnectionType: 'AzureRM'
-        azureSubscription: 'wrodeworkae'
-        appType: 'webAppContainer'
-        WebAppName: 'MyNginxApp'
-        DockerNamespace: 'task39registry.azurecr.io'
-        DockerRepository: 'nginxapp'
-        DockerImageTag: '$(Build.BuildId)'
-
     - task: KubernetesManifest@1
       inputs:
         action: 'deploy'
